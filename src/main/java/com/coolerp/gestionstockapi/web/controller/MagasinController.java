@@ -1,11 +1,15 @@
 package com.coolerp.gestionstockapi.web.controller;
 
-
 import com.coolerp.gestionstockapi.web.dao.MagasinDao;
+
 import com.coolerp.gestionstockapi.web.model.Magasin;
+
 import org.apache.coyote.Response;
+
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.*;
+
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
@@ -47,4 +51,6 @@ public class MagasinController {
                 .toUri();
         return ResponseEntity.created(location).build();
     }
+
+    // Supprimer un Magasin
 }
