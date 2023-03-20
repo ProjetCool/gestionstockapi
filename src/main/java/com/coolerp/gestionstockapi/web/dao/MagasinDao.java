@@ -1,12 +1,13 @@
 package com.coolerp.gestionstockapi.web.dao;
 
-
 import com.coolerp.gestionstockapi.web.model.Magasin;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public interface MagasinDao {
-    List<Magasin> findAll();
+@Repository
+public interface MagasinDao extends JpaRepository<Magasin, Integer> {
     Magasin findById(int id_Magasin);
-    Magasin save(Magasin magasin);
+    List<Magasin> findByCoordoGreaterThan(int CoordoLimit);
 }

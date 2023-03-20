@@ -1,17 +1,33 @@
 package com.coolerp.gestionstockapi.web.model;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+//@JsonFilter("monFiltreDynamyque")
+@Entity
 public class Magasin {
+    @Id
+    //@GeneratedValue
     private int id_Magasin;
     private String Designation;
     private String Localisation;
 
-    public Magasin() {
+
+    //Information A Cacher
+    private double Coordo;
+
+    public Magasin(){
     }
 
-    public Magasin(int id_Magasin, String Designation, String Localisation){
-        this.id_Magasin = id_Magasin;
-        this.Designation = Designation;
-        this.Localisation = Localisation;
+    public Magasin(int id_magasin, String designation, String localisation, double coordo) {
+        this.id_Magasin = id_magasin;
+        this.Designation = designation;
+        this.Localisation = localisation;
+        this.Coordo = coordo;
     }
 
     public int getId_Magasin(){
@@ -38,12 +54,21 @@ public class Magasin {
         this.Localisation = Localisation;
     }
 
+    public double getCoordo(){
+        return Coordo;
+    }
+
+    public void setCoordo(double Coordo){
+        this.Coordo = Coordo;
+    }
+
     @Override
-    public String toString() {
+    public String toString(){
         return "Magasin{" +
-                "id_Magasin=" + id_Magasin +
-                ", Designation=" + Designation + '\'' +
-                ", Localisation=" + Localisation +
+                "id=" + id_Magasin +
+                ", Designation=" + Designation + "\'" +
+                ", Localisation=" + Localisation + "\'" +
+                ", Coordo=" + Coordo +
                 "}";
     }
 }
